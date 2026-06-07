@@ -1,0 +1,9 @@
+# Ignore backend and non-frontend files for Vercel deployment
+backend/
+model/
+dataset/
+.vscode/
+README.md
+LICENSE
+.gitignore
+.git/
