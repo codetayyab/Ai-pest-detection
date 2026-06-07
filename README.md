@@ -32,6 +32,15 @@ A camera-enabled pest detection system for plants using a React frontend and Fas
    uvicorn app:app --host 0.0.0.0 --port 8000 --reload
    ```
 
+### Webcam Camera Detection
+
+1. From the backend folder, run:
+   ```powershell
+   python camera_capture.py
+   ```
+2. A window will open showing the webcam feed.
+3. Press `q` to quit.
+
 ### Frontend
 
 1. Install dependencies:
