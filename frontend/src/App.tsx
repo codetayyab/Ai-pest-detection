@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { getApiUrl } from './api';
 import { Language } from './translations';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
@@ -30,14 +31,6 @@ function App() {
   const [lang, setLang] = useState<Language>('en');
   const [history, setHistory] = useState<HistoryItem[]>([]);
   const [isRefreshing, setIsRefreshing] = useState<boolean>(false);
-
-  // Get API URL from environment variables, check multiple fallbacks
-  const getApiUrl = () => {
-    const envUrl = (import.meta.env.VITE_API_URL) || 
-                   (import.meta.env.NEXT_PUBLIC_API_URL) ||
-                   "http://localhost:8000";
-    return envUrl.endsWith('/') ? envUrl.slice(0, -1) : envUrl;
-  };
 
   // Fetch History from FastAPI Backend
   const fetchHistory = async () => {

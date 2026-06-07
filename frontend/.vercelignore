@@ -1,0 +1,6 @@
+# Ignore local frontend artifacts and build outputs
+node_modules/
+dist/
+.vite/
+.cache/
+*.local

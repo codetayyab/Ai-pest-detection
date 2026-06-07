@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: ai-pest-detection-backend
+    env: python
+    branch: master
+    rootDir: backend
+    plan: free
+    buildCommand: ""
+    startCommand: gunicorn -w 4 -k uvicorn.workers.UvicornWorker app:app --bind 0.0.0.0:$PORT
+    autoDeploy: true
+    envVars:
+      - key: PYTHONUNBUFFERED
+        value: "1"

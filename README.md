@@ -66,6 +66,22 @@ A camera-enabled pest detection system for plants using a React frontend and Fas
 - The backend uses `Pillow`, `OpenCV`, and optional `ultralytics` for improved detection.
 - If a YOLO model file is available in `backend/model/`, the app will attempt to use it.
 
+## Deployment
+
+### Backend on Render
+
+- `render.yaml` is included at the repository root.
+- Backend service files are under `backend/`.
+- Render will use `backend/Procfile` and `backend/requirements.txt`.
+- After render deploy, copy the public backend URL and use it in Vercel as `VITE_API_URL`.
+
+### Frontend on Vercel
+
+- The frontend is deployed from the `frontend/` root.
+- Set `VITE_API_URL` in the Vercel project environment variables.
+- The app will automatically use that backend URL at build time.
+- Use `frontend/.env.example` to create a local `.env` file for development.
+
 ## GitHub Repository
 
 This folder is now ready to be initialized as a Git repository for sharing on GitHub.

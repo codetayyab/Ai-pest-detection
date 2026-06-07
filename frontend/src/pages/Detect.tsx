@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import confetti from 'canvas-confetti';
 import { Camera, Upload, AlertCircle } from 'lucide-react';
+import { getApiUrl } from '../api';
 import { Language, translations } from '../translations';
 import { WebcamComponent } from '../components/WebcamComponent';
 import { UploadComponent } from '../components/UploadComponent';
@@ -45,15 +46,6 @@ export const Detect: React.FC<DetectProps> = ({ lang, onNewScan }) => {
     "Whiteflies": "سفید مکھی",
     "Caterpillars": "کیٹرپلر (سولیاں)",
     "Healthy Plant": "صحت مند پودا"
-  };
-
-  // Get API URL from environment variables, check multiple fallbacks
-  const getApiUrl = () => {
-    // NextJS style or Vite style env variables
-    const envUrl = (import.meta.env.VITE_API_URL) || 
-                   (import.meta.env.NEXT_PUBLIC_API_URL) ||
-                   "http://localhost:8000";
-    return envUrl.endsWith('/') ? envUrl.slice(0, -1) : envUrl;
   };
 
   // Trigger speech synthesis

@@ -19,6 +19,7 @@ env/
 build/
 dist/
 .python-version
+backend/history.json
 
 # Node
 node_modules/
@@ -48,3 +49,6 @@ pnpm-lock.yaml
 # OS files
 .DS_Store
 Thumbs.db
+.vercel
+.env*
+!.env.example
