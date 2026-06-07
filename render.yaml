@@ -2,7 +2,7 @@ services:
   - type: web
     name: ai-pest-detection-backend
     env: python
-    branch: master
+    branch: main
     rootDir: backend
     plan: free
     buildCommand: ""
