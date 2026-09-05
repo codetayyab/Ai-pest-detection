@@ -1,2 +1,15 @@
+[project]
+name = "ai-pest-detection"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+  "fastapi>=0.110.0",
+  "uvicorn>=0.28.0",
+  "python-multipart>=0.0.9",
+  "pydantic>=2.6.0",
+  "pillow>=10.3.0",
+  "gunicorn>=21.2.0",
+]
+
 [tool.vercel]
 entrypoint = "backend.app:app"
