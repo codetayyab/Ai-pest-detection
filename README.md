@@ -34,12 +34,9 @@ A camera-enabled pest detection system for plants using a React frontend and Fas
 
 ### Webcam Camera Detection
 
-1. From the backend folder, run:
-   ```powershell
-   python camera_capture.py
-   ```
-2. A window will open showing the webcam feed.
-3. Press `q` to quit.
+Use the webcam mode in the browser frontend. It captures frames in the browser
+and sends them to the FastAPI API; no separate desktop OpenCV camera process is
+required.
 
 ### Frontend
 
@@ -63,8 +60,11 @@ A camera-enabled pest detection system for plants using a React frontend and Fas
 ## Notes
 
 - You may need a physical webcam and browser permission to access it.
-- The backend uses `Pillow`, `OpenCV`, and optional `ultralytics` for improved detection.
-- If a YOLO model file is available in `backend/model/`, the app will attempt to use it.
+- The current backend uses a lightweight baseline heuristic only. It deliberately
+  does not train, fine-tune, download, or load a model.
+- A future trained detector should replace `backend/model.py` while preserving
+  its existing response fields (`pest`, `confidence`, `solution`, dimensions,
+  and `boxes`) so the frontend needs no API changes.
 
 ## Deployment
 
@@ -81,6 +81,9 @@ A camera-enabled pest detection system for plants using a React frontend and Fas
 - Set `VITE_API_URL` in the Vercel project environment variables.
 - The app will automatically use that backend URL at build time.
 - Use `frontend/.env.example` to create a local `.env` file for development.
+
+For the complete two-project Vercel deployment procedure, limitations, CORS
+configuration, and local verification steps, read [VERCEL_DEPLOYMENT.md](VERCEL_DEPLOYMENT.md).
 
 ## GitHub Repository
 
