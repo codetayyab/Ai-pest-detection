@@ -9,7 +9,7 @@ Create a GitHub repository and push the `Ai-pest-detection` directory. Do not co
 ## 2. Deploy the backend
 
 1. In Vercel, select **Add New → Project** and import the GitHub repository.
-2. Set **Root Directory** to `backend` (not the repository root). This is required because the Python requirements and FastAPI entrypoint are inside this directory.
+2. You may set **Root Directory** to `backend` (recommended) or leave it at the repository root. Both layouts are configured. If you leave it at the repository root, Vercel uses the root `pyproject.toml` and `requirements.txt` to locate `backend.app:app`.
 3. Select the Python/FastAPI preset if prompted; leave the build command blank.
 4. Deploy. The included `api/index.py` and `vercel.json` route all endpoints to FastAPI.
 5. Open `https://YOUR-BACKEND.vercel.app/health`. It must return JSON with `"status":"ok"`.
