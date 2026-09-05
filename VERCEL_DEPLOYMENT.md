@@ -1,6 +1,6 @@
 # Vercel deployment
 
-The frontend and backend are deployed as **two Vercel projects from the same repository**. The backend is a lightweight FastAPI serverless function and intentionally runs a baseline heuristic only; it does not train, fine-tune, download, or load a YOLO model.
+The frontend and backend are deployed as **two Vercel projects from the same repository**. The backend runs the pretrained YOLOv8n base model by default. It performs generic COCO object detection and is not a pest or plant-disease classifier.
 
 ## 1. Push the repository to GitHub
 
@@ -40,8 +40,9 @@ VITE_API_URL=https://YOUR-BACKEND.vercel.app
 ## Important limitations
 
 - Vercel functions have an ephemeral filesystem. `history.json` can disappear whenever a function instance is replaced, so Dashboard history is temporary. Use Postgres, Supabase, or another database before relying on history in production.
-- The baseline detector is deliberately not medically or agriculturally reliable. It exists only to prove the frontend/backend contract until a trained model is supplied.
-- Vercel is suitable for this lightweight baseline. A future YOLO/PyTorch model may exceed serverless package, memory, execution-time, or cold-start limits. Put model inference behind a dedicated container/GPU service and keep this API/frontend contract.
+- YOLOv8n has no aphid, mite, whitefly, caterpillar, or plant-disease classes. A response from this model is an object detection result, not an agricultural diagnosis.
+- YOLOv8/PyTorch may exceed Vercel serverless package, memory, execution-time, or cold-start limits. If this deployment cannot build or times out, deploy inference on a dedicated container/GPU service and keep this API/frontend contract.
+- When a pest-trained `.pt` file is available, set `YOLO_MODEL_PATH` to its path. Do not change the frontend API contract.
 
 ## Local run
 
